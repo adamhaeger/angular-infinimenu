@@ -8,9 +8,9 @@
   ],
   "description": "This is an offcanvas angular menu that supports an infinitely nested menu structure.",
   "main": "ng-infinimenu.js",
-  "moduleType": [
-    "amd"
-  ],
+    "dependencies": {
+        "angular": ">=1"
+    },
   "keywords": [
     "angular",
     "off-canvas",
