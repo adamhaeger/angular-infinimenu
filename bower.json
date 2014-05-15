@@ -1,0 +1,28 @@
+{
+  "name": "ng-infinimenu",
+  "version": "0.1.0",
+  "homepage": "https://github.com/adamhaeger/angular-infinimenu",
+  "authors": [
+    "adamhaeger",
+    "stianwestvig"
+  ],
+  "description": "This is an offcanvas angular menu that supports an infinitely nested menu structure.",
+  "main": "ng-infinimenu.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "angular",
+    "off-canvas",
+    "menu"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
