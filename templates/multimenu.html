@@ -1,0 +1,16 @@
+<aside class="main-menu" ng-class="{'visible' : isVisible}">
+    <a backbutton ng-show="activeLevel > 0">
+        <span class='glyphicon glyphicon-chevron-left back-button'></span>
+        </a>
+            <a closebutton class='close-button'><span class='glyphicon glyphicon-remove'></span></a>
+            <ul class="off-canvas-list"  ng-style="{
+            '-webkit-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,
+            '-moz-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,
+            '-ms-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,
+            '-o-transformm': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,
+            'transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' }" >
+            <li ng-repeat="item in menuitems" ng-include="'../templates/menu_item.html'"></li>
+            </ul>
+</aside>
+
+

@@ -1,4 +1,4 @@
-angular.module('agh.multimenu', ['templates/multimenu.html', 'templates/menu_item.html'])
+angular.module('agh.multimenu', ['views/multimenu.html', 'menu_item.html'])
 
     .service('menuService', ['$rootScope', function($rootScope) {
 
@@ -60,7 +60,7 @@ angular.module('agh.multimenu', ['templates/multimenu.html', 'templates/menu_ite
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: '../templates/multimenu.html',
+            templateUrl: 'views/multimenu.html',
             scope: {
                 menuitems: '=',
                 visible: '='
@@ -112,12 +112,29 @@ angular.module('agh.multimenu', ['templates/multimenu.html', 'templates/menu_ite
         };
     })
 
-
-angular.module("templates/multimenu.html", []).run(["$templateCache", function($templateCache) {
-    $templateCache.put("templates/multimenu.html");
+angular.module("views/multimenu.html", []).run(["$templateCache", function($templateCache) {
+    $templateCache.put("views/multimenu.html",
+            "<aside class=\"main-menu\" ng-class=\"{'visible' : isVisible}\">"+
+            "    <a backbutton ng-show=\"activeLevel > 0\" <span class='glyphicon glyphicon-chevron-left back-button'> <span><\/a>"+
+            "    <a closebutton class='close-button'><span class='glyphicon glyphicon-remove'><span></a>"+
+            "    <ul class=\"off-canvas-list\"  ng-style=\"{"+
+            "                '-webkit-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,"+
+            "                '-moz-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,"+
+            "                '-ms-transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,"+
+            "                '-o-transformm': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' ,"+
+            "                'transform': 'translate3d(-' +  ( activeLevel * 100 ) + '%, 0, 0) scale3d(1, 1, 1)' }\" >"+
+            "        <li ng-repeat=\"item in menuitems\" ng-include=\"'menu_item.html'\"><\/li>"+
+            "    <\/ul>"+
+            "<\/aside>"
+    );
 }]);
 
-angular.module("templates/menu_item.html", []).run(["$templateCache", function($templateCache) {
-    $templateCache.put("templates/menu_item.html");
+angular.module("menu_item.html", []).run(["$templateCache", function($templateCache) {
+    $templateCache.put("menu_item.html",
+            "<a ng-if=\"item.categories.length\" menuitem>{{ item.linkText }}<span class=\"glyphicon glyphicon-chevron-right\"></span></a>" +
+            "<a ng-if=\"!item.categories.length\" href=\"{{item.href}}\">{{ item.linkText }}</a>" +
+            "<ul ng-if=\"item.categories.length\">" +
+            "<li ng-repeat=\"item in item.categories\" ng-include=\"'menu_item.html'\"></li>" +
+            "</ul>"
+    );
 }]);
-

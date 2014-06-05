@@ -1,0 +1,6 @@
+<a ng-if="item.categories.length" menuitem>{{ item.linkText }}<span class="glyphicon glyphicon-chevron-right"></span></a>
+<a ng-if="!item.categories.length" href="{{item.href}}">{{ item.linkText }}</a>
+<ul ng-if="item.categories.length">
+    <li ng-repeat="item in item.categories" ng-include="'../templates/menu_item.html'"></li>
+</ul>
+

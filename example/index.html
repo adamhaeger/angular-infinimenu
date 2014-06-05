@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Infinimenu exmaple</title>
+</head>
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+<link rel="stylesheet" href="../css/menu.css"/>
+
+<body ng-app="app"  ng-controller="menuController as menu">
+
+
+
+<multimenu menuitems="menu.menuItems" visible="false"></multimenu>
+
+<div class="row">
+
+    <div class="container">
+
+<div class="col-xs-12">
+
+
+    <div class="jumbotron">
+        <h1>The angular infinimenu</h1>
+        <p>The angular infininmenu supports an infinitely nested menu tree, and is optionally off-canvas, and can be defaulted to open on desktops.</p>
+    </div>
+
+
+    <a closebutton class="left-off-canvas-toggle menu-icon">close</a>
+</div>
+    </div>
+
+</div>
+
+</body>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../ng-infinimenu.js"></script>
+<!--<script src="../ng-infinimenu-tpls.js"></script>-->
+<script src="app.js"></script>
+</html>
