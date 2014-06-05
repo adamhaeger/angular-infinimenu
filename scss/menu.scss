@@ -1,0 +1,138 @@
+@mixin transition_transform ($transition, $transition-time, $method) {
+  -webkit-transition:  -webkit-transform $transition-time $method;
+  -moz-transition: -moz-transform $transition-time $method;
+  -o-transition:  -o-transform $transition-time $method;
+  transition: transform $transition-time $method;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+
+.main-menu {
+
+  min-height: 800px;
+  /*padding-left: 17px;*/
+  $width : 18.625rem;
+  @include transition(left, 100ms, ease-in-out);
+  -webkit-backface-visibility: hidden;
+  width: $width;
+  top: 50px;
+  left: -$width;
+  position: absolute;
+  overflow-y: auto;
+  background: #edf6fd;
+  z-index: 1001;
+  box-sizing: content-box;
+  min-height: rem-calc(800);
+  padding-left: 0;
+
+
+  ul {
+
+  }
+
+
+  ul.off-canvas-list {
+    margin: 40px 0 0 0;
+    list-style: none;
+    padding-left: 0;
+    padding-left: 5px;
+    /*padding-left: 17px;*/
+
+
+    @include transition_transform(transform, 100ms, ease);
+
+    li {
+      a {
+
+        cursor: pointer;
+
+        &:hover, &:focus, &:focus  {
+          background: none !important;
+          font-weight: bold;
+        }
+
+        span {
+          float: right;
+          margin-top: 4px;
+        }
+
+      }
+
+      ul {
+        position: absolute;
+        left: 100%;
+        margin-left: 0;
+        padding-left: 5px;
+        top: 0px;
+        list-style: none;
+        width: 100%;
+        z-index: 1002;
+        display: none;
+      }
+    }
+  }
+
+  a.active + ul {
+    display: block !important;
+  }
+
+
+  .nav-button {
+    float: right;
+  }
+
+
+  a.back-button {
+    color: #CC1B43;
+    float: left;
+    padding: 5px;
+    position: relative;
+    top: -7px;
+
+    &:before {
+      /*@extend  .icomoon;
+      content:'\e608';
+      font-size: rem-calc(30);*/
+      color:#1C4072;
+      position: relative;
+      top: 8px;
+    }
+
+    &:hover, &:focus, &:focus  {
+      &:before {
+        color: #CC1B43;
+      }
+    }
+  }
+
+  a.close-button {
+    float: right;
+    padding: 5px;
+    &:before {
+      @extend .icomoon;
+      /*content:'\e607';*/
+      /*font-size: rem-calc(30);*/
+      color:#1C4072;
+    }
+
+    &:hover, &:focus, &:focus  {
+      &:before {
+        color: #CC1B43;
+      }
+    }
+
+  }
+
+  &.visible {
+    left:0 !important;
+  }
+
+}
+
