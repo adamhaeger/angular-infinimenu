@@ -24,6 +24,7 @@
     "bower_components",
     "test",
     "tests",
-    "server.js"
+    "server.js",
+    "gulpfile.js"
   ]
 }
